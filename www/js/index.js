@@ -48,4 +48,11 @@ var app = {
     }
 };
 
+$(function(){
+   $('#login').click(function(){
+       $('#welcome').toggle();
+   });
+
+});
+
 app.initialize();
