@@ -149,16 +149,19 @@ h1 {
     #button-container {
         text-align: center;
         button {
-            &:first-child {
-                right: 6px;
-            }
-            &:nth-child(2) {
-                left: 6px;
-            }
             @include box-shadow;
-            width: 40%;
+            width: 35%;
             margin: 10px auto;
             position: relative;
+
+            &:first-child {
+            }
+            &:nth-child(2) {
+                width: 20%;
+            }
+            &:nth-child(3) {
+            }
+
         }
     }
 }
