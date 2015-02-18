@@ -143,4 +143,33 @@ h1 {
   -webkit-animation: fade 3000ms infinite;
 }
 
+#timer {
+  min-width: 300px;
+  max-width: 50%;
+  margin: 0 auto;
+}
+#timer label {
+  display: block;
+}
+#timer label input {
+  width: 98%;
+}
+#timer #button-container {
+  text-align: center;
+}
+#timer #button-container button {
+  -webkit-box-shadow: 0px 1px 5px 3px #9c899c;
+  -moz-box-shadow: 0px 1px 5px 3px #9c899c;
+  box-shadow: 0px 1px 5px 3px #9c899c;
+  width: 40%;
+  margin: 10px auto;
+  position: relative;
+}
+#timer #button-container button:first-child {
+  right: 6px;
+}
+#timer #button-container button:nth-child(2) {
+  left: 6px;
+}
+
 /*# sourceMappingURL=stylesDevelopment.css.map */

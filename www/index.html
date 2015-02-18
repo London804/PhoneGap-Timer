@@ -44,6 +44,27 @@
             <h2>Welcome please log in</h2>
             <p>Stuff ...</p>
         </div>
+        <div>
+            <fieldset id="timer">
+                <label for="adjusting-ideal">
+                    <span>Iterated time:</span>
+                    <input type="text" id="adjusting-ideal" name="ideal">
+                </label>
+                <label for="adjusting-real">
+                    <span>Actual time:</span>
+                    <input type="text" id="adjusting-real" name="real">
+                </label>
+                <label for="adjusting-diff">
+                    <span>Difference:</span>
+                    <input type="text" id="adjusting-diff" name="diff">
+                </label>
+                <div id="button-container">
+                    <button id="submit" type="submit">Start</button>
+                    <button id='reset' type="reset">Stop</button>
+                </div>
+
+            </fieldset>
+        </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
