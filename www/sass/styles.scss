@@ -135,6 +135,12 @@ h1 {
 }
 
 #timer-container {
+    #timer {
+        text-align: center;
+        font-size: 20px;
+        color: rgb(72, 135, 218);
+        font-weight: bold;
+    }
     min-width: 300px;
     max-width: 50%;
     margin: 0 auto;
