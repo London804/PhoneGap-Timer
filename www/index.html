@@ -45,19 +45,20 @@
             <p>Stuff ...</p>
         </div>
         <div>
-            <fieldset id="timer">
-                <label for="adjusting-ideal">
-                    <span>Iterated time:</span>
-                    <input type="text" id="adjusting-ideal" name="ideal">
-                </label>
-                <label for="adjusting-real">
-                    <span>Actual time:</span>
-                    <input type="text" id="adjusting-real" name="real">
-                </label>
-                <label for="adjusting-diff">
-                    <span>Difference:</span>
-                    <input type="text" id="adjusting-diff" name="diff">
-                </label>
+            <fieldset id="timer-container">
+                <div id="timer"><span class="value">0:00</span> <span id="sec">sec</span></div>
+                <!--<label for="adjusting-ideal">-->
+                    <!--<span>Iterated time:</span>-->
+                    <!--<input type="text" id="adjusting-ideal" name="ideal">-->
+                <!--</label>-->
+                <!--<label for="adjusting-real">-->
+                    <!--<span>Actual time:</span>-->
+                    <!--<input type="text" id="adjusting-real" name="real">-->
+                <!--</label>-->
+                <!--<label for="adjusting-diff">-->
+                    <!--<span>Difference:</span>-->
+                    <!--<input type="text" id="adjusting-diff" name="diff">-->
+                <!--</label>-->
                 <div id="button-container">
                     <button id="submit" type="submit">Start</button>
                     <button id='reset' type="reset">Reset</button>
@@ -67,13 +68,8 @@
             </fieldset>
         </div>
 
-        <div>
-
-            <p>click <code>start</code> to start a stopwatch</p>
 
 
-            <div class="basic stopwatch"></div>
-        </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
