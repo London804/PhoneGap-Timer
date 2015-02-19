@@ -56,10 +56,11 @@ $(function(){
    });
 
 $('#submit').click(function(){
-   var start = setInterval(updateDisplay, 1000); // every millisecond call updateDisplay
+   var start = setInterval(updateDisplay, 1000), // every millisecond call updateDisplay
+       timer = $('#timer'),
+       value = parseInt($(timer).find('.value').text(), 10);
+
     function updateDisplay(){
-        var timer = $('#timer'),
-            value = parseInt($(timer).find('.value').text(), 10);
 
         value++;
         $(timer).find('.value').text(value);
@@ -78,6 +79,10 @@ $('#submit').click(function(){
 
     $('#stop').click(function(){
         clearInterval(start);
+    });
+    $('#reset').click(function(){
+        clearInterval(start);
+        value = parseInt($(timer).find('.value').text('0'));
     });
 
 });
