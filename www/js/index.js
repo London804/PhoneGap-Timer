@@ -55,37 +55,116 @@ $(function(){
        $('#welcome').toggle();
    });
 
-$('#submit').click(function(){
-   var start = setInterval(updateDisplay, 1000), // every millisecond call updateDisplay
-       timer = $('#timer'),
-       value = parseInt($(timer).find('.value').text(), 10);
+    //$('#submit').click(function(){
+    //    var start = setInterval(updateDisplay, 1000), // every millisecond call updateDisplay
+    //        timer = $('#timer'),
+    //        value = parseInt($(timer).find('.value').text(), 10);
+    //
+    //
+    //
+    //    function updateDisplay(){
+    //        value++;
+    //        var myDate = new Date(null, null, null, null, null, value).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+    //        $(timer).find('.value').text(myDate);
+    //        if (value >= 60) {
+    //            $('#sec').replaceWith("min");
+    //        }
+    //        if (value >= 3600) {
+    //            $('#sec').replaceWith("hrs");
+    //        }
+    //        if (value >= 86400) {
+    //            value = 0;
+    //            console.log('stop and take a break, you have been working over 24hrs!');
+    //
+    //        }
+    //    }
+    //
+    //    $('#stop').click(function(){
+    //        clearInterval(start);
+    //    });
+    //    $('#reset').click(function(){
+    //        clearInterval(start);
+    //        value = parseInt($(timer).find('.value').text('0'));
+    //    });
+    //    //
+    //    //var start_dt = Date.now();
+    //    //var current_dt = Date.now();
+    //    //var elapsed_ms = current_dt - start_dt;
+    //    //function format_timer(ms) {
+    //    //    var s = (ms / (      1000)) % 60;
+    //    //    var m = (ms / (   60*1000)) % 60;
+    //    //    var h = (ms / (60*60*1000));
+    //    //    return h + ":" + ( m<10 ? "0"+m : m ) + ":" + ( s<10 ? "0"+s : s );
+    //    //    console.log(format_timer(ms));
+    //    //}
+    //
+    //});
 
-    function updateDisplay(){
+    var starting_ms ;
+    var elapsed ;
+    var $timer = $('#timer .value');
+    //var $hrs = $('#elapsedtime #hrs');
+    //var $min = $('#elapsedtime #min');
+    //var $sec = $('#elapsedtime #sec');
+    var start;
 
-        value++;
-        $(timer).find('.value').text(value);
-        if (value >= 60) {
-            $('#sec').replaceWith("min");
-        }
-        if (value >= 3600) {
-            $('#sec').replaceWith("hrs");
-        }
-        if (value >= 86400) {
-            value = 0;
-            console.log('stop and take a break, you have been working over 24hrs!');
+    function updateDisplay() {
+        elapsed.setTime(Date.now() - starting_ms);
+        $timer.text(elapsed.toUTCString().substr(20, 5));
 
-        }
+        $hrs.text(elapsed.getUTCHours() );
+        $min.text(elapsed.getUTCMinutes() );
+        $sec.text(elapsed.getUTCSeconds() );
     }
 
-    $('#stop').click(function(){
-        clearInterval(start);
-    });
-    $('#reset').click(function(){
-        clearInterval(start);
-        value = parseInt($(timer).find('.value').text('0'));
+
+    $('#submit').click(function(){
+        if( start )
+            clearInterval(start);
+        starting_ms = Date.now();
+        elapsed     = new Date(0);
+
+        start = setInterval(updateDisplay, 1000); // every millisecond call updateDisplay
+
+        //var start = setInterval(updateDisplay, 1000), // every millisecond call updateDisplay
+        //    timer = $('#timer'),
+        //    value = parseInt($(timer).find('.value').text(), 10);
+
+
+
+
+
+        //function updateDisplay(){
+        //    value++;
+        //    var myDate = new Date(null, null, null, null, null, value).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+        //    $(timer).find('.value').text(myDate);
+        //    if (value >= 60) {
+        //        $('#sec').replaceWith("min");
+        //    }
+        //    if (value >= 3600) {
+        //        $('#sec').replaceWith("hrs");
+        //    }
+        //    if (value >= 86400) {
+        //        value = 0;
+        //        console.log('stop and take a break, you have been working over 24hrs!');
+        //
+        //    }
+        //}
+
+        $('#stop').click(function(){
+            clearInterval(start);
+        });
+        $('#reset').click(function(){
+            clearInterval(start);
+            //value = parseInt($(timer).find('.value').text('0'));
+
+            starting_ms = Date.now();
+            updateDisplay();
+        });
+
     });
 
-});
+
 
 
 
