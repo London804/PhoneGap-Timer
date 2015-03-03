@@ -117,7 +117,11 @@ $(function(){
 
         console.log(x);
 
+        //next steps
         //how do I get the value of the last two characters in the object $timer?
+        //Integrate OAuth
+        //See if you can save time using Parse
+
 
         $hrs.text(elapsed.getUTCHours() );
         $min.text(elapsed.getUTCMinutes() );
