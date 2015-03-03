@@ -103,14 +103,21 @@ $(function(){
     var starting_ms ;
     var elapsed ;
     var $timer = $('#timer .value');
-    //var $hrs = $('#elapsedtime #hrs');
-    //var $min = $('#elapsedtime #min');
-    //var $sec = $('#elapsedtime #sec');
+    var $hrs = $('#elapsedtime #hrs');
+    var $min = $('#elapsedtime #min');
+    var $sec = $('#elapsedtime #sec');
     var start;
 
     function updateDisplay() {
         elapsed.setTime(Date.now() - starting_ms);
-        $timer.text(elapsed.toUTCString().substr(20, 5));
+        $timer.text(elapsed.toUTCString().substr(17, 8));
+        //console.log($timer.text(elapsed.toUTCString()));
+
+        var x = $timer.toString();
+
+        console.log(x);
+
+        //how do I get the value of the last two characters in the object $timer?
 
         $hrs.text(elapsed.getUTCHours() );
         $min.text(elapsed.getUTCMinutes() );
@@ -126,37 +133,12 @@ $(function(){
 
         start = setInterval(updateDisplay, 1000); // every millisecond call updateDisplay
 
-        //var start = setInterval(updateDisplay, 1000), // every millisecond call updateDisplay
-        //    timer = $('#timer'),
-        //    value = parseInt($(timer).find('.value').text(), 10);
-
-
-
-
-
-        //function updateDisplay(){
-        //    value++;
-        //    var myDate = new Date(null, null, null, null, null, value).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
-        //    $(timer).find('.value').text(myDate);
-        //    if (value >= 60) {
-        //        $('#sec').replaceWith("min");
-        //    }
-        //    if (value >= 3600) {
-        //        $('#sec').replaceWith("hrs");
-        //    }
-        //    if (value >= 86400) {
-        //        value = 0;
-        //        console.log('stop and take a break, you have been working over 24hrs!');
-        //
-        //    }
-        //}
-
         $('#stop').click(function(){
             clearInterval(start);
         });
         $('#reset').click(function(){
             clearInterval(start);
-            //value = parseInt($(timer).find('.value').text('0'));
+
 
             starting_ms = Date.now();
             updateDisplay();
